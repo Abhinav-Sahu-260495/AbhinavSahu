@@ -134,6 +134,136 @@
         display: none;
       }
     }
+
+    /* Theme toggle button */
+    #theme-toggle {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      margin-left: 20px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    body.light-mode #theme-toggle {
+      color: #1a1a1a;
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Light mode overrides */
+    body.light-mode {
+      background: #f5f5f5 !important;
+      color: #444 !important;
+    }
+
+    body.light-mode h1,
+    body.light-mode h2,
+    body.light-mode h3,
+    body.light-mode h4,
+    body.light-mode h5,
+    body.light-mode .h1,
+    body.light-mode .h2,
+    body.light-mode .h3,
+    body.light-mode .h4,
+    body.light-mode .h5 {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode .ftco-navbar-light,
+    body.light-mode .ftco-navbar-light.scrolled {
+      background: #ffffff !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-mode .ftco-navbar-light .navbar-brand,
+    body.light-mode .ftco-navbar-light .navbar-nav>.nav-item>.nav-link,
+    body.light-mode .ftco-navbar-light.scrolled .navbar-brand,
+    body.light-mode .ftco-navbar-light.scrolled .nav-link {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode .ftco-navbar-light .nav-item.active>a,
+    body.light-mode .ftco-navbar-light.scrolled .nav-item.active>a,
+    body.light-mode .ftco-navbar-light .nav-link.active {
+      color: #ffbd39 !important;
+    }
+
+    body.light-mode .resume-wrap {
+      background: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    body.light-mode .ftco-about ul.about-info li span:first-child {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode .blog-entry .text .heading a {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode .ftco-counter .block-18 {
+      background: #ffffff !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-mode .ftco-counter .text span {
+      color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    body.light-mode .hero-photo-caption {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode .btn-white.btn-outline-white {
+      color: #1a1a1a !important;
+      border-color: rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Ghost watermark headings must stay faint, not solid dark */
+    body.light-mode .heading-section h1.big {
+      color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* Hero typing animation text (was hardcoded white) */
+    body.light-mode #typing-animation {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode #typing-animation:before {
+      background-color: #999 !important;
+    }
+
+    /* "10+ Projects completed" line under About skills */
+    body.light-mode .ftco-about .counter-wrap .text p span {
+      color: #1a1a1a !important;
+    }
+
+    body.light-mode .ftco-about .counter-wrap .text p span.number {
+      color: #ffbd39 !important;
+    }
+
+    /* Skill progress bar track */
+    body.light-mode .progress {
+      background: #e0e0e0 !important;
+    }
+
+    /* Contact page icon circles */
+    body.light-mode .contact-section .box .icon {
+      background: rgba(0, 0, 0, 0.06) !important;
+    }
+
+    /* Social icon circles in contact footer */
+    body.light-mode .ftco-footer-social li a {
+      background: rgba(0, 0, 0, 0.06) !important;
+    }
   </style>
 
 
@@ -161,6 +291,7 @@
           <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
         </ul>
       </div>
+      <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme">🌙</button>
     </div>
   </nav>
   <section id="home-section" class="hero">
@@ -777,6 +908,28 @@
   <script src="js/scrollax.min.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    (function () {
+      var toggleBtn = document.getElementById('theme-toggle');
+      var storedTheme = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      var isLight = storedTheme ? storedTheme === 'light' : prefersLight;
+
+      function applyTheme(light) {
+        document.body.classList.toggle('light-mode', light);
+        toggleBtn.textContent = light ? '☀️' : '🌙';
+      }
+
+      applyTheme(isLight);
+
+      toggleBtn.addEventListener('click', function () {
+        isLight = !isLight;
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        applyTheme(isLight);
+      });
+    })();
+  </script>
 
   <script>
     (function () {
