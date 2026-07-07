@@ -8444,13 +8444,13 @@ h1, h2, h3, h4, h5,
         background: #b3b3b3; }
   .owl-carousel.home-slider {
     position: relative;
-    height: 750px;
+    height: 100vh;
     z-index: 0; }
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      height: 750px;
+      height: 100vh;
       position: relative;
       z-index: 0; }
       @media (max-width: 1199.98px) {
@@ -8465,7 +8465,7 @@ h1, h2, h3, h4, h5,
         background: #000000;
         opacity: 0; }
       .owl-carousel.home-slider .slider-item .slider-text {
-        height: 750px;
+        height: 100vh;
         z-index: 0; }
         @media (max-width: 991.98px) {
           .owl-carousel.home-slider .slider-item .slider-text {
@@ -8817,20 +8817,34 @@ h1, h2, h3, h4, h5,
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline; }
   .resume-wrap ul {
     max-width: 900px; }
   .resume-wrap .date {
+    order: 2;
+    margin-left: auto;
+    padding-left: 20px;
+    white-space: nowrap;
     font-weight: 900;
     font-size: 26px;
     color: #ffbd39; }
   .resume-wrap h2 {
+    order: 1;
+    margin: 0;
     font-size: 26px; }
   .resume-wrap .position {
+    order: 3;
+    flex-basis: 100%;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase; }
+  .resume-wrap p {
+    order: 4;
+    flex-basis: 100%; }
 
 .services-1 {
   margin-bottom: 40px;
