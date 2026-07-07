@@ -8822,6 +8822,8 @@ h1, h2, h3, h4, h5,
   flex-wrap: wrap;
   align-items: baseline; }
   .resume-wrap ul {
+    order: 4;
+    flex-basis: 100%;
     max-width: 900px; }
   .resume-wrap .date {
     order: 2;
