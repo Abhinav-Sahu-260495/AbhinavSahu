@@ -348,17 +348,21 @@
             <span class="position">Verizon, USA</span>
             <p class="mt-4">
             <ul>
-              <li>Architected a multi-agent agentic framework (Master Orchestrator) using Python and LangGraph patterns,
-                routing natural language user queries through a modular pipeline of 12+ specialized agents, enabling a
-                unified NLQ-to-Insight workflow.</li>
-              <li>Built a Natural Language to SQL (NLQ-to-SQL) generation system backed by Gemini Flash, Gemini Pro, and
-                Claude LLMs, incorporating pgvector-based semantic similarity search, ThinkForge cache lookup
-                (complete/partial/hybrid modes), and confidence scoring to optimize query accuracy and reduce LLM token
-                consumption.</li>
-              <li>Designed and delivered streaming API endpoints using Server-Sent Events (SSE) via FastAPI to
-                progressively stream LLM-generated SQL, Python code, summaries, visualizations, and execution logs to
-                the frontend.</li>
-
+              <li>Architected a multi-agent framework using Python, LangChain and LangGraph, designing a Master
+                Orchestrator with microservices-based specialized agents and tool-calling execution to route natural
+                language user queries through a modular pipeline of 12+ specialized agents, enabling a unified
+                NLQ-to-Insight workflow.</li>
+              <li>Built a Natural Language to SQL (NLQ-to-SQL) generation platform using FastAPI, Pydantic
+                request/response validation, backed by Gemini Flash, Gemini Pro, and Claude LLMs, incorporating
+                pgvector-based semantic similarity search, ThinkForge cache lookup (complete/partial/hybrid modes),
+                and confidence scoring to optimize query accuracy and reduce LLM token consumption.</li>
+              <li>Developed and optimized multi-database query generation capabilities supporting BigQuery, Teradata,
+                PostgreSQL, and Oracle, processing 10K+ AI-generated queries per week, improving analyst productivity,
+                and reducing manual SQL development time by ~70%.</li>
+              <li>Developed diagnostic agents for OOS ticket triage, root cause analysis, and automated summarization
+                using LangGraph workflows and Model Context Protocol (MCP) tool interfaces with the VEGAS platform,
+                incorporating confidence scoring algorithms and evidence correlation systems for diagnostic log
+                analysis, reducing manual intervention by 40%.</li>
             </ul>
             </p>
           </div>
@@ -372,18 +376,15 @@
             <span class="position">Molina Healthcare, USA</span>
             <!--<p class="mt-4">Eon Collective is an consulting firm specializing in AI-driven solutions and data engineering for businesses excellence. -->
             <ul>
-              <li>Applied ML algorithms (regression, classification, clustering, anomaly detection) on 10M+
-                de-identified patient records, EHR data, and imaging datasets, producing accurate predictions that
-                powered 3 HIPAA-compliant clinical analytics applications for risk scoring and treatment optimization.
-              </li>
-              <li>Built deep learning models for medical NLP (clinical notes), radiology imaging, and speech recognition
-                (doctor dictation) using TensorFlow and PyTorch, delivering 4 production-ready healthcare AI solutions
-                that saved 1,200+ clinician hours annually while adhering to PHI governance standards. </li>
-              <li>Customized pretrained LLMs (BioBERT, ClinicalBERT, TrOCR, Donut) with LangChain pipelines on 1.5M+
-                de-identified medical documents and lab reports, improving data extraction accuracy across 5 workflows
-                (diagnosis coding, discharge summaries) under HIPAA and PHI masking protocols. </li>
-              <!-- <li>Collaborated with clinicians, researchers, compliance teams, and product managers to translate medical requirements into HIPAAcompliant AI models, aligning AI solutions with 3 enterprise healthcare use cases such as readmission prediction, claims automation, and patient outcome forecasting. </li> -->
-              <!-- <li>Designed and executed A/B tests, performed rigorous statistical analysis. Led to 20% MoM increase in the conversion rate.</li> -->
+              <li>Applied ML algorithms (regression, classification, clustering, anomaly detection) on sample
+                de-identified patient records and EHR data for predictions that powered HIPAA-compliant clinical
+                analytics applications for risk scoring and treatment optimization.</li>
+              <li>Built proof-of-concept deep learning models for medical NLP (clinical notes), radiology imaging, and
+                speech recognition (doctor dictation) using TensorFlow and PyTorch, delivering production-ready
+                healthcare AI solutions that saved 1,200+ clinician hours annually.</li>
+              <li>Evaluated pretrained LLMs (BioBERT, ClinicalBERT, TrOCR, Donut) with LangChain pipelines on sample
+                de-identified medical documents and lab reports, improving data extraction accuracy across 2-3
+                prototype workflows (diagnosis coding, discharge summaries) under HIPAA and PHI masking protocols.</li>
             </ul>
             </p>
           </div>
@@ -398,16 +399,11 @@
             <!-- <p class="mt-4">Flyhomes is a real estate startup that simplifies the home-buying process by offering innovative solutions. -->
             <ul>
               <li>Developed LLM-driven pipelines with LangChain and vector databases (FAISS, Pinecone) by integrating
-                200M+ IT service records, enabling retrieval-augmented responses in enterprise chatbots.</li>
-              <li>Optimized transformer-based models (BERT, GPT) with embeddings on 1.5M + unstructured documents and
-                researching LLM automation for tasks such as Oracle SQL to Snowflake SQL conversion, enhancing entity
-                recognition across 5 workflows. </li>
+                100K+ IT service records, enabling retrieval-augmented responses in enterprise chatbot.</li>
               <li>Constructed RAG architectures in AWS SageMaker and Azure ML by combining structured and unstructured
-                data sources, reducing response times from 18 to 4 seconds in live user queries.</li>
-              <!-- <li>Devised GenAI-based NLP tools for ticket classification by training custom models on 800K+ support cases, saving 3,200 hours annually across IT operations. </li> -->
-              <li>Established MLOps pipelines integrating CI/CD, model monitoring, and automated retraining for 7
-                production-grade LLM models, sustaining availability and scaling to 12K+ daily users. </li>
-              <!-- <li>Performed migration and enhancements for merchandising dashboard, involved data integration and its feature improvement.</li> -->
+                data sources, reducing response times from 18 seconds to 4 seconds in live user queries.</li>
+              <li>Established MLOps pipelines integrating CI/CD, model monitoring, and automated retraining for 2
+                production-grade LLM models, sustaining availability and scaling to 3K+ daily users.</li>
             </ul>
             </p>
           </div>
@@ -417,25 +413,17 @@
         <div class="col-md-6">
           <div class="resume-wrap ftco-animate">
             <span class="date">Jan 2020 – Jul 2023 </span>
-            <h2>Data Engineer</h2>
+            <h2>Data Scientist</h2>
             <span class="position">KPMG, India</span>
             <p class="mt-4">
-              <!-- Vestian Global provides workplace solutions, specializing in real estate services optimizing workplace efficiency.-->
             <ul>
-              <li>Orchestrated ETL pipelines with PySpark and Apache Airflow by ingesting 250M+ transactional records,
-                enabling downstream ML models to detect anomalies across 6 business units.</li>
-              <li>Operationalized ML workflows using scikit-learn and XGBoost by tuning models on 20M+ payer datasets,
-                identifying 3.5M highrisk claims that required compliance audits.</li>
-              <li>Configured DevOps pipelines with Git, Jenkins, Docker and Kubernetes by automating code pushes and
-                containerized deployments, accelerating release cycles from 15 days to 3 days.</li>
-              <li>Designed interactive dashboards in Power BI by integrating model outputs and KPIs, reducing regulatory
-                report preparation time by 200+ hours per quarter.</li>
-              <!-- <li>Implemented MLOps practices with MLflow and Kubernetes by monitoring 8 deployed models, sustaining accuracy while supporting 5 production environments.</li> -->
-              <!-- <li>Migrated legacy SQL Server workloads into Snowflake and AWS Glue by restructuring 1.8TB datasets, shortening query execution times from 12 seconds to 3 seconds across 4 business-critical reports.</li> -->
-              <!-- <li>Automated data quality checks with dbt and CI/CD validation pipelines by running 400+ tests per cycle, ensuring data accuracy for analytics teams and reducing incident tickets by 35 per month.</li> -->
-
-
-              <!-- <li>Performed migration and enhancements for merchandising dashboard, involved data integration and its feature improvement.</li> -->
+              <li>Built and deployed machine learning pipelines using Python, scikit-learn, XGBoost, and PySpark on
+                250M+ enterprise transaction and audit records, enabling anomaly detection and predictive risk scoring
+                across 6 business units.</li>
+              <li>Designed feature engineering and model training workflows for fraud detection, compliance
+                analytics, and operational forecasting, improving high-risk claim identification accuracy by 28%.</li>
+              <li>Implemented MLOps workflows using MLflow, Docker, Kubernetes, and Jenkins for automated model
+                training, versioning, deployment, and monitoring across 5 production environments.</li>
             </ul>
             </p>
           </div>
@@ -454,8 +442,6 @@
                 that supported 25+ enterprise performance and compliance reports.</li>
               <li>Programmed ETL workflows with PySpark and Alteryx by consolidating server logs and application events,
                 eliminating 35 hours of manual reporting effort each month.</li>
-              <li>Built Tableau dashboards visualizing system uptime, ticket resolution trends, and SLA compliance,
-                reducing incident investigation time by 3 days per audit cycle.</li>
               <li>Analyzed 3 years of infrastructure usage data with Python (Pandas, NumPy), identifying 14 recurring
                 anomalies that informed capacity planning and reduced system slowdowns across global operations.</li>
               <!-- <li>Applied time-series forecasting models (ARIMA, Prophet) on IT service demand data, predicting 12-month workload patterns across 6 global regions to optimize resource allocation.</li> -->
