@@ -117,6 +117,23 @@
     #contact-section {
       padding-top: 1em;
     }
+
+    /* Cursor trail canvas */
+    #cursor-trail-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      #cursor-trail-canvas {
+        display: none;
+      }
+    }
   </style>
 
 
@@ -124,6 +141,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
+  <canvas id="cursor-trail-canvas"></canvas>
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
     <div class="container">
@@ -759,6 +777,72 @@
   <script src="js/scrollax.min.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    (function () {
+      var isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+      // Magnetic effect on primary buttons (works with touch too, harmlessly ignored)
+      document.querySelectorAll('.btn').forEach(function (btn) {
+        btn.addEventListener('mousemove', function (e) {
+          var rect = btn.getBoundingClientRect();
+          var relX = e.clientX - rect.left - rect.width / 2;
+          var relY = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = 'translate(' + relX * 0.3 + 'px, ' + relY * 0.3 + 'px)';
+        });
+        btn.addEventListener('mouseleave', function () {
+          btn.style.transform = 'translate(0, 0)';
+        });
+      });
+
+      if (isTouch) return;
+
+      // Cursor trail: small glowing particles spawned as the (normal) cursor moves
+      var canvas = document.getElementById('cursor-trail-canvas');
+      var ctx = canvas.getContext('2d');
+      var particles = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      window.addEventListener('mousemove', function (e) {
+        for (var i = 0; i < 2; i++) {
+          particles.push({
+            x: e.clientX,
+            y: e.clientY,
+            size: Math.random() * 3 + 2,
+            life: 1,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6
+          });
+        }
+      });
+
+      function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = particles.length - 1; i >= 0; i--) {
+          var p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= 0.025;
+          if (p.life <= 0) {
+            particles.splice(i, 1);
+            continue;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 189, 57, ' + (p.life * 0.8) + ')';
+          ctx.fill();
+        }
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+  </script>
 
 </body>
 
