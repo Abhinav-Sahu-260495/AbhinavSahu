@@ -913,8 +913,7 @@
     (function () {
       var toggleBtn = document.getElementById('theme-toggle');
       var storedTheme = localStorage.getItem('theme');
-      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      var isLight = storedTheme ? storedTheme === 'light' : prefersLight;
+      var isLight = storedTheme === 'light';
 
       function applyTheme(light) {
         document.body.classList.toggle('light-mode', light);
